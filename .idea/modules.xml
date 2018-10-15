@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bilimusic.iml" filepath="$PROJECT_DIR$/bilimusic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bilimusic_android.iml" filepath="$PROJECT_DIR$/bilimusic_android.iml" />
+    </modules>
+  </component>
+</project>
