@@ -11,8 +11,8 @@ class MusicInfo {
       : id = json["id"],
         title = json["title"],
         author = json["author"],
-        cover = json["cover"],
-        lyric = json["lyric"];
+        cover = json["cover"] ?? json["cover_url"],
+        lyric = json["lyric"] ?? json["lyric_url"];
 
   Map<String, dynamic> toMap() {
     return {

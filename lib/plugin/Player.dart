@@ -29,6 +29,7 @@ class Player {
     final List<dynamic> lyric = await platform.invokeMethod("getLyric");
     print(lyric);
     return lyric.map((obj){
+      Map<String, dynamic> map = (obj as Map<dynamic, dynamic>).map((k, v) => new MapEntry(k.toString(), v));
       return new LyricModel(obj["text"], obj["time"]);
     }).toList();
   }

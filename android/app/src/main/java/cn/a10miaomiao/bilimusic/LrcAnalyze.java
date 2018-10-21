@@ -35,6 +35,8 @@ public class LrcAnalyze {
 //    private FileInputStream filein;
     private String lrcString;
 
+    private boolean isNotTime = false; // 是否没有时间，不能滚动
+
 //    // record the file
 ////    private File file;
 
@@ -56,7 +58,11 @@ public class LrcAnalyze {
     // get lrc
     public static final int LRC_ZONE = 5;
 
-    private static final int LRC_NOTIME = 6;
+    public static final int LRC_NOTIME = 6;
+
+    public boolean isNotTime() {
+        return isNotTime;
+    }
 
     // lrc data contract
     public class LrcData {
@@ -171,6 +177,7 @@ public class LrcAnalyze {
                 lrcdata.type = LRC_ZONE;
                 int n = ContentLine.indexOf('[');
                 if (n == -1){
+                    isNotTime = true;
                     lrcdata.type = LRC_NOTIME;
                     lrcdata.LrcLine = ContentLine;
                 } else {

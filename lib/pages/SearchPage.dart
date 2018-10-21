@@ -2,7 +2,8 @@ import 'package:bilimusic/comm/LoadStatus.dart';
 import 'package:bilimusic/comm/MyBottomBar.dart';
 import 'package:bilimusic/model/MusicInfo.dart';
 import 'package:bilimusic/model/state.dart';
-import 'package:bilimusic/player/Player.dart';
+import 'package:bilimusic/netword/ApiHelper.dart';
+import 'package:bilimusic/plugin/Player.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -55,13 +56,21 @@ class _SearchPage extends State<SearchPage> {
 
   void loadList() async{
     _loading = true;
-    final url = "http://api.bilibili.com/audio/music-service-c/s?appkey=1d8b6e7d45233436&build=5310300&keyword=" 
-        + _keyword
-        + "&mobi_app=android&page="
-        + _page.toString()
-        + "&pagesize=20&platform=android&search_type=music&ts=1537275674&sign=787ee9b465fc72752010bfe96a697106";
+    final params = {
+      "appkey": ApiHelper.APP_KEY,
+      "build": 5310300,
+      "keyword": _keyword,
+      "mobi_app": "android",
+      "page": _page,
+      "pagesize": _pagesize,
+      "platform": "android",
+      "search_type": "music",
+      "ts": ApiHelper.getTime(),
+    };
+    params["sign"] = ApiHelper.getSign(params);
+    final url = "http://api.bilibili.com/audio/music-service-c/s";
     try {
-      final res = await Dio().get<Map<String, dynamic>>(url);
+      final res = await Dio().get<Map<String, dynamic>>(url, data: params);
       List list = res.data["data"]["result"];
       if(list.length < _pagesize)
         _noMore = true;

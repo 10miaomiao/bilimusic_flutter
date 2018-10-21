@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
+import org.json.JSONException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +32,11 @@ public class Http {
 
             @Override
             protected void onPostExecute(String result) {
-                callBack.callback(result);
+                try {
+                    callBack.callback(result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
         };
@@ -102,6 +108,6 @@ public class Http {
     }
 
     public interface CallBack {
-        void callback(String data);
+        void callback(String data) throws JSONException;
     }
 }

@@ -1,7 +1,7 @@
 import 'package:bilimusic/comm/MusicQueue.dart';
 import 'package:bilimusic/model/state.dart';
 import 'package:bilimusic/pages/PlayerPage.dart';
-import 'package:bilimusic/player/Player.dart';
+import 'package:bilimusic/plugin/Player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 

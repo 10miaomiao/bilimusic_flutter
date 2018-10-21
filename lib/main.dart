@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:bilimusic/comm/MyBottomBar.dart';
+import 'package:bilimusic/netword/LoginHelper.dart';
 import 'package:bilimusic/pages/SearchPage.dart';
 import 'package:bilimusic/pages/ThemePage.dart';
 import 'package:bilimusic/test/ListPage.dart';
@@ -12,7 +14,7 @@ import 'package:bilimusic/pages/HistoryPage.dart';
 import 'package:bilimusic/pages/MusicListPage.dart';
 import 'package:bilimusic/comm/MyDrawer.dart';
 import 'package:bilimusic/model/state.dart';
-import 'package:bilimusic/player/Player.dart';
+import 'package:bilimusic/plugin/Player.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -21,7 +23,8 @@ void main() {
         player: new PlayerState(title: "", subTitle: ""),
         theme: new ThemeState(
           color: new Color(0xff2196f3),
-        )
+        ),
+        user: new UserState()
       ),
     );
   Timer.periodic(new Duration(milliseconds: 500), (timer) async {
@@ -31,8 +34,25 @@ void main() {
     store.dispatch(new ThemeState(
       color: new Color(prefs.getInt("theme_color") ?? 0xff2196f3),
     ));
+    var user_str = prefs.getString("user_info") ?? "";
+    if(user_str != ""){
+      Map<String, dynamic> user_info = json.decode(user_str);
+      store.dispatch(new UserState.fromJson(user_info));
+      loadUserData(store, prefs);
+    }
   });
   runApp(new MyApp(store));
+}
+
+void loadUserData(Store<AppState> store,SharedPreferences prefs) async{
+  final access_token = prefs.getString("access_token");
+  final user = await LoginHelper.authInfo(access_token);
+  if(user['code'] == 0){
+    final user_data = user['data'];
+    LoginHelper.saveUserInfo(user_data);
+    final action = new UserState.fromJson(user_data);
+    store.dispatch(action);
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -100,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               new Text("哔哩喵音乐"),
-              new Text("v0.1 alpha2"),
+              new Text("v0.1 alpha3"),
               new Text("Flutter版本：0.8.2"),
               new Text("by 10miaomiao.cn"),
             ],

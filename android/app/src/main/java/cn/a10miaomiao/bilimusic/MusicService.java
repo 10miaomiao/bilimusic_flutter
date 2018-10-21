@@ -185,10 +185,11 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
         this.mMusicNotify.updateForPlaying();
         this.mMediaSessionManager.updateLocMsg();
         mMediaPlayer.stop();
+        final int id = (int) list.get(this.index).get("id");
         biliLyricLoader.loadLyric(
+                id,
                 (String) list.get(index).get("lyric")
         );
-        final int id = (int) list.get(this.index).get("id");
         historyDB.deleteById(id);
         historyDB.insert(list.get(this.index));
 

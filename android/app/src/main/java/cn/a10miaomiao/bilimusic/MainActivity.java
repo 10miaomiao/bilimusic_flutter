@@ -10,8 +10,11 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
+import java.security.interfaces.RSAPublicKey;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.crypto.Cipher;
 
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.EventChannel;
@@ -47,6 +50,7 @@ public class MainActivity extends FlutterActivity {
 
         new MethodChannel(getFlutterView(), VolumeProviderPlugin.CHANNEL).setMethodCallHandler(new VolumeProviderPlugin(this));
         new MethodChannel(getFlutterView(), ToastProviderPlugin.CHANNEL).setMethodCallHandler(new ToastProviderPlugin(this));
+        new MethodChannel(getFlutterView(), RSAProviderPlugin.CHANNEL).setMethodCallHandler(new RSAProviderPlugin());
         new EventChannel(getFlutterView(), "a10miaomiao.cn/lyric").setStreamHandler(
                 new EventChannel.StreamHandler() {
                     private BroadcastReceiver mBroadcastReceiver;

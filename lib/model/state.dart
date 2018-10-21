@@ -47,11 +47,69 @@ class PlayerState {
 
 }
 
+/// 主题
 class ThemeState{
   Color color;
   ThemeState({
     this.color,
   });
+}
+
+
+/// 登陆-用户
+class UserState {
+  // "mid": 6789810,
+  // "name": "10喵喵",
+  // "face": "http://i2.hdslb.com/bfs/face/a9c907d558e46fc3addf15a72cfb66d2d2a955bf.jpg",
+  // "coin": 446,
+  // "bcoin": 5,
+  // "sex": 0,
+  // "rank": 10000,
+  // "silence": 0,
+  // "show_videoup": 1,
+  // "show_creative": 1,
+  // "level": 5,
+  // "vip_type": 2,
+  // "audio_type": 0,
+  // "dynamic": 11,
+  // "following": 95,
+  // "follower": 10,
+  // "official_verify": {
+  //   "type": -1,
+  //   "desc": ""
+  // }
+  int mid;
+  String name;
+  String face;
+  int coin;
+  int bcoin;
+  int sex;
+  int level;
+  int vip_type;
+
+  bool isLogin = false;
+
+  UserState({
+    this.mid,
+    this.name,
+    this.face,
+    this.coin,
+    this.bcoin,
+    this.sex,
+    this.level,
+    this.vip_type,
+    this.isLogin: false
+  });
+
+  UserState.fromJson(Map<String, dynamic> json)
+    : mid = json["mid"],
+      name = json["name"],
+      face = json["face"],
+      coin = json["coin"],
+      bcoin = json["bcoin"],
+      level = json["level"],
+      vip_type = json["vip_type"],
+      isLogin = true;
 }
 
 enum Action{
@@ -62,10 +120,12 @@ enum Action{
 class AppState {
   PlayerState player;
   ThemeState theme;
+  UserState user;
 
   AppState({
     this.player,
     this.theme,
+    this.user,
   });
 }
 
@@ -88,6 +148,9 @@ AppState mainReducer(AppState state, dynamic action) {
   }
   if (action is ThemeState) {
     state.theme = action;
+  }
+  if (action is UserState) {
+    state.user = action;
   }
   return state;
 }

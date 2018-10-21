@@ -1,6 +1,6 @@
 import 'package:bilimusic/model/MusicInfo.dart';
 import 'package:bilimusic/model/state.dart';
-import 'package:bilimusic/player/Player.dart';
+import 'package:bilimusic/plugin/Player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
@@ -20,16 +20,18 @@ class _MusicQueue extends State<MusicQueue> {
 
   @override
   void initState() {
+    super.initState();
     _scrollController = new ScrollController();
-    Player.getList().then((list) {
-      setState(() {
-        _list = list;
-      });
-      Player.getInfo().then((info){
-        _scrollController.jumpTo(info.index * _ITEM_HEIGHT);
-        // _scrollController.animateTo(info.index * 48.0, duration: new Duration(milliseconds: 500), curve: Curves.ease);
-      });
+    loadList();
+  }
+
+  void loadList() async{
+    final list = await Player.getList();
+    setState(() {
+      _list = list;
     });
+    final info = await Player.getInfo();
+    _scrollController.jumpTo(info.index * _ITEM_HEIGHT);
   }
 
   Widget buildItem(BuildContext ctx, int index, int i) {

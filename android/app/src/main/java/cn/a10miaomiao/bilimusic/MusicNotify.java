@@ -30,7 +30,6 @@ public class MusicNotify {
     MusicService mMusicService;
     MediaPlayer mMediaPlayer;
     NotificationManager manager;
-    NotificationCompat.Builder builder;
     final int notificationID = 2333;
 
     public MusicNotify(MusicService musicService, MediaPlayer mediaPlayer) {
@@ -40,9 +39,6 @@ public class MusicNotify {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel("cn.a10miaomiao.bilimiusic.control", "MiusicControl", NotificationManager.IMPORTANCE_LOW);
             manager.createNotificationChannel(mChannel);
-            builder = new NotificationCompat.Builder(mMusicService, "cn.a10miaomiao.bilimiusic.control");
-        } else {
-            builder = new NotificationCompat.Builder(mMusicService);
         }
     }
 
@@ -69,6 +65,7 @@ public class MusicNotify {
     }
 
     private void updateWithBitmap(Bitmap bitmap, String title, String subTitle) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mMusicService, "cn.a10miaomiao.bilimiusic.control");
         int playPauseIcon = mMediaPlayer.isPlaying() ? R.drawable.ic_pause_black_24dp : R.drawable.ic_play_arrow_black_24dp;
         builder.setContentTitle(title);
         builder.setContentText(subTitle);

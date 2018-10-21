@@ -1,48 +1,45 @@
+import 'dart:convert';
 import 'package:bilimusic/comm/LoadStatus.dart';
 import 'package:bilimusic/comm/MyBottomBar.dart';
-import 'package:bilimusic/model/MenuInfo2.dart';
+import 'package:bilimusic/model/CollectionInfo.dart';
+import 'package:bilimusic/model/MusicInfo.dart';
 import 'package:bilimusic/model/state.dart';
 import 'package:bilimusic/netword/BiliMusicApi.dart';
-import 'package:flutter/material.dart';
+import 'package:bilimusic/netword/LoginHelper.dart';
 import 'package:bilimusic/plugin/Player.dart';
-import 'package:bilimusic/model/MusicInfo.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-typedef void Callback(MusicInfo info);
 
-class MusicListPage extends StatefulWidget {
-  int sid;
+class CollectionDetailsPage extends StatefulWidget {
+  CollectionInfo info;
 
-  MusicListPage(this.sid);
+  CollectionDetailsPage(this.info);
 
   @override
-  State<StatefulWidget> createState() => new _MusicListPage(sid);
+  State<StatefulWidget> createState() => new _CollectionDetailsPage(this.info);
 }
 
-class _MusicListPage extends State<MusicListPage> {
-  int sid;
-  String _title = "歌单详情";
-  MenuInfo2 _info;
+class _CollectionDetailsPage extends State<CollectionDetailsPage> {
+  CollectionInfo info;
   List<MusicInfo> _list = new List();
   var loadAction = LoadAction.loading;
 
-  _MusicListPage(this.sid);
+
+  _CollectionDetailsPage(this.info);
 
   @override
-  void initState() {
+  void initState(){
     super.initState();
     loadData();
-    ///增加滑动监听
   }
 
-  void loadData() async {
+  void loadData() async{
     try {
-      final res = await BiliMusicApi.getMenuInfo(sid);
+      final user = await LoginHelper.readUserInfo();
+      final res = await BiliMusicApi.getCollectionsSongs(user["mid"], info.id, 1, 500);
+      List list = res.data["data"]["list"];
       setState(() {
-        final data = res.data["data"];
-        _info = MenuInfo2.fromJson(data["menusRespones"]);
-        _title = _info.title;
-        List list = data["songsList"];
         _list.clear();
         for (var item in list) {
           _list.add(MusicInfo.fromJson(item));
@@ -56,52 +53,8 @@ class _MusicListPage extends State<MusicListPage> {
       });
     }
   }
-
-  /**
-   * 收藏
-   */
-  void star(BuildContext context) async{
-    if(StoreProvider.of<AppState>(context).state.user.isLogin){
-      final res = await BiliMusicApi.addMenuCollect(sid);
-      if(res.data["code"] == 0){
-        Scaffold.of(context).showSnackBar(new SnackBar(
-          content: new Text("收藏成功"),
-        ));
-        setState(() {
-          _info.collected = 1;        
-        });
-      }else{
-        Scaffold.of(context).showSnackBar(new SnackBar(
-          content: new Text(res.data["message"]),
-        ));
-      }
-    }else{
-      Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text("你还未登陆"),
-      ));
-    }
-  }
-
-  /**
-   * 取消收藏
-   */
-  void unstar(BuildContext context) async{
-    final res = await BiliMusicApi.delMenuCollect(sid);
-    if(res.data["code"] == 0){
-      Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text("取消收藏成功"),
-      ));
-      setState(() {
-        _info.collected = 0;        
-      });
-    }else{
-      Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text(res.data["message"]),
-      ));
-    }
-  }
-
-
+  
+  
   void play(BuildContext context, int index) async {
     Player.setList(_list);
     Player.play(index);
@@ -115,7 +68,7 @@ class _MusicListPage extends State<MusicListPage> {
       ),
     );
   }
-
+    
   /**
    * 头部
    */
@@ -128,7 +81,7 @@ class _MusicListPage extends State<MusicListPage> {
           new SizedBox(
             height: 140.0,
             width: 140.0,
-            child: new Image.network(_info.coverUrl),
+            child: new Image.network(info.img_url),
           ),
           new Expanded(
             flex: 1,
@@ -138,7 +91,7 @@ class _MusicListPage extends State<MusicListPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   new Text(
-                    _info.title,
+                    info.title,
                     style: new TextStyle(
                       fontSize: 20.0,
                     ),
@@ -146,7 +99,7 @@ class _MusicListPage extends State<MusicListPage> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   new Text(
-                    _info.intro,
+                    info.desc,
                     style: new TextStyle(
                       fontSize: 14.0,
                       color: new Color(0xFF99A2AA),
@@ -214,6 +167,7 @@ class _MusicListPage extends State<MusicListPage> {
         ),
         onRefresh: () async {
           await loadData();
+          return null;
         },
       ),
       onRefresh: (){
@@ -225,47 +179,12 @@ class _MusicListPage extends State<MusicListPage> {
     );
   }
 
-  List<Widget> buildActions(BuildContext context){
-    var actions = <Widget>[];
-    if(_info != null && _info.collected == 0){
-      actions.add(
-        new Builder(builder: (BuildContext context){
-          return new IconButton(
-            icon: new Icon(
-              Icons.star_border,
-              color: Colors.white,
-            ),
-            onPressed: (){
-              star(context);
-            },
-          );
-        }),
-      );
-    }else{
-      actions.add(
-        new Builder(builder: (BuildContext context){
-          return new IconButton(
-            icon: new Icon(
-              Icons.star,
-              color: Colors.white,
-            ),
-            onPressed: (){
-              unstar(context);
-            },
-          );
-        }),
-      );
-    }
-    return actions;
-  }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
-        title: new Text(_title),
-        actions: buildActions(context),
+        title: new Text(info.title),
       ),
       body: buildBody(context),
       bottomNavigationBar: new MyBottomBar(),

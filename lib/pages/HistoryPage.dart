@@ -1,6 +1,6 @@
 import 'package:bilimusic/model/MusicInfo.dart';
 import 'package:bilimusic/model/state.dart';
-import 'package:bilimusic/player/Player.dart';
+import 'package:bilimusic/plugin/Player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
@@ -89,7 +89,7 @@ class _HistoryPage extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return new RefreshIndicator(
-      child:  ListView(
+      child: ListView(
           physics: const AlwaysScrollableScrollPhysics(),
           children: List.generate(_list.length, (index) {
             return buildItem(context, index);
