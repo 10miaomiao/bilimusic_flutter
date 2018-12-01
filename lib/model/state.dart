@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 /// 播放器状态
 class PlayerState {
+  int id;
   String title;
   String subTitle;
   String cover;
@@ -11,6 +12,7 @@ class PlayerState {
   int index;
 
   PlayerState({
+    this.id,
     this.title,
     this.subTitle,
     this.cover,
@@ -82,7 +84,7 @@ class UserState {
   String name;
   String face;
   int coin;
-  int bcoin;
+  // num bcoin;
   int sex;
   int level;
   int vip_type;
@@ -94,7 +96,7 @@ class UserState {
     this.name,
     this.face,
     this.coin,
-    this.bcoin,
+    // this.bcoin,
     this.sex,
     this.level,
     this.vip_type,
@@ -106,7 +108,7 @@ class UserState {
       name = json["name"],
       face = json["face"],
       coin = json["coin"],
-      bcoin = json["bcoin"],
+      // bcoin = json["bcoin"],
       level = json["level"],
       vip_type = json["vip_type"],
       isLogin = true;
@@ -131,6 +133,8 @@ class AppState {
 
 AppState mainReducer(AppState state, dynamic action) {
   if (action is PlayerState) {
+    if(action.id != null)
+      state.player.id = action.id;
     if(action.title != null)
       state.player.title = action.title;
     if(action.subTitle != null)

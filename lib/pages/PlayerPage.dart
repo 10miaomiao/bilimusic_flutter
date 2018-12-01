@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:bilimusic/comm/FavoriteView.dart';
 import 'package:bilimusic/comm/LyricBox.dart';
 import 'package:bilimusic/comm/MusicQueue.dart';
 import 'package:bilimusic/model/state.dart';
@@ -75,6 +78,44 @@ class _PlayerPage extends State<PlayerPage> {
     Volume.setVolume(_volume);
   }
 
+  Widget buildAppBar(BuildContext context, PlayerState player){
+    return new Padding(
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      child: new Row(
+        children: <Widget>[
+          new IconButton(
+            icon: new Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.white,
+            ),
+            iconSize: 40.0,
+            onPressed: (){
+              Navigator.of(context).pop();
+            },
+          ),
+          new Expanded(
+            child: new SizedBox(
+              height: 0.0,
+            )
+          ),
+          new IconButton(
+            icon: new Icon(
+              Icons.favorite_border,
+              color: Colors.white,
+            ),
+            iconSize: 30.0,
+            onPressed: (){
+              showModalBottomSheet(
+                context: context,
+                builder: (context) => new FavoriteView(player.id),
+              );
+            },
+          ),
+        ]
+      ),
+    );
+  }
+
   Widget buildHeader(BuildContext context, PlayerState player){
     return new GestureDetector(
       child: new AspectRatio(
@@ -101,6 +142,7 @@ class _PlayerPage extends State<PlayerPage> {
               duration: new Duration(milliseconds: 200),
               child: new LyricBox(),
             ),
+            buildAppBar(context, player)
           ],
         )
       ),
@@ -127,6 +169,7 @@ class _PlayerPage extends State<PlayerPage> {
                 player.getCurrentTime(),
                 style: new TextStyle(
                   fontSize: 14.0,
+                  color: Colors.white
                 ),
               ),
               new Expanded(
@@ -157,6 +200,7 @@ class _PlayerPage extends State<PlayerPage> {
                 player.getAllTime(),
                 style: new TextStyle(
                   fontSize: 14.0,
+                  color: Colors.white
                 ),
               ),
             ],
@@ -166,6 +210,7 @@ class _PlayerPage extends State<PlayerPage> {
           player.title,
           style: new TextStyle(
             fontSize: 20.0,
+            color: Colors.white
           ),
           textAlign: TextAlign.center,
         ),
@@ -173,7 +218,7 @@ class _PlayerPage extends State<PlayerPage> {
           player.subTitle,
           textAlign: TextAlign.center,
           style: new TextStyle(
-            color: new Color(0xFF99A2AA),
+            color: Colors.white,
           ),
         ),
         new Expanded(
@@ -280,25 +325,23 @@ class _PlayerPage extends State<PlayerPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new StoreConnector<AppState, PlayerState>(
-        builder: (context, player) => new Stack(
-              children: <Widget>[
-                player.cover == null
-                    ? new Image.asset(
-                        "images/bili.png",
-                        height: MediaQuery.of(context).size.height,
-                        fit: BoxFit.fitHeight,
-                      )
-                    : new Image.network(
-                        player.cover,
-                        height: MediaQuery.of(context).size.height,
-                        fit: BoxFit.fitHeight,
-                      ),
-                new Container(
-                  color: new Color(0xDDFFFFFF),
-                  child: buildBody(context, player),
-                ),
-              ],
+        builder: (context, player) => new Container(
+          decoration: new BoxDecoration(
+            image: new DecorationImage(
+              fit: BoxFit.cover,
+              image: new NetworkImage(player.cover),
             ),
+          ),
+          child: new Center(
+            child: new BackdropFilter(
+              filter: new ImageFilter.blur(sigmaX: 64.0, sigmaY: 64.0),
+              child: new Container(
+                color: Colors.black.withOpacity(0.4),
+                child: buildBody(context, player)
+              ),
+            ),
+          ),
+        ),
         converter: (store) => store.state.player,
       ),
     );

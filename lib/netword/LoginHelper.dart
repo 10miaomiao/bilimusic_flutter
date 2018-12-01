@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bilimusic/netword/ApiHelper.dart';
 import 'package:bilimusic/plugin/RSA.dart';
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert' show json;
@@ -49,7 +50,9 @@ class LoginHelper{
 
   static Future<int> getMid() async{
     final prefs = await SharedPreferences.getInstance();
-    final str = prefs.getString("user_info") ?? "";
+    final str = prefs.getString("user_info");
+    if(str == null)
+      return -1;
     return json.decode(str)["mid"];
   }
 
@@ -76,14 +79,16 @@ class LoginHelper{
       'ts': ApiHelper.getTime(),
     };
     params['sign'] = ApiHelper.getSign(params);
-    print(params);
     final r = await new Dio().get<Map<String, dynamic>>(
       "https://app.bilibili.com/x/v2/account/mine?" + ApiHelper.urlencode(params),
     );
     return r.data;
   }
 
-  static Future<Map<String, dynamic>> login(String username,String password) async{
+  static Future<Map<String, dynamic>> login(String username,String password,{
+    String captcha,
+    CookieJar cookieJar,
+  }) async{
     final key_map = await getKey();
     final hash = key_map["hash"];
     final key = key_map["key"];
@@ -93,8 +98,15 @@ class LoginHelper{
       'password': encrypt.replaceAll('\n', ''),
       'username': username
     };
+    if(captcha != null && captcha != ""){
+      params["captcha"] = captcha;
+    }
+    final dio = new Dio();
+    if(cookieJar != null){
+      dio.cookieJar = cookieJar;
+    }
     params['sign'] = ApiHelper.getSign(params);
-    final r = await new Dio().post<Map<String, dynamic>>(
+    final r = await dio.post<Map<String, dynamic>>(
       BASE_URL + "api/oauth2/login?" + ApiHelper.urlencode(params),
       options: new Options(
         headers: headers,

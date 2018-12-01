@@ -30,8 +30,8 @@ android {
         applicationId "cn.a10miaomiao.bilimusic"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 3
-        versionName "0.1 alpha3"
+        versionCode 5
+        versionName "0.1 alpha4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,8 +49,8 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-            // signingConfig signingConfigs.release
+            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 

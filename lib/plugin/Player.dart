@@ -15,6 +15,7 @@ class Player {
   static Future<PlayerState> getInfo() async {
     final obj = await platform.invokeMethod("getInfo");
     return new PlayerState(
+      id: obj["id"],
       position: obj["position"],
       duration: obj["duration"],
       title: obj["title"],

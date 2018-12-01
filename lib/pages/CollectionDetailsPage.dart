@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:bilimusic/comm/LoadStatus.dart';
 import 'package:bilimusic/comm/MyBottomBar.dart';
 import 'package:bilimusic/model/CollectionInfo.dart';
@@ -47,7 +46,6 @@ class _CollectionDetailsPage extends State<CollectionDetailsPage> {
         loadAction = LoadAction.complete;
       });
     } catch (e) {
-      print(e);
       setState(() {
         loadAction = LoadAction.fail;
       });

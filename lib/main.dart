@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               new Text("哔哩喵音乐"),
-              new Text("v0.1 alpha3"),
+              new Text("v0.1 alpha4"),
               new Text("Flutter版本：0.8.2"),
               new Text("by 10miaomiao.cn"),
             ],

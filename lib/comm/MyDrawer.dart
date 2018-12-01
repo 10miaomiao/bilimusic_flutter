@@ -50,10 +50,12 @@ class _MyDrawer extends State<MyDrawer> {
 
   void _onHeaderTap(){
     if(_isLogin){
+      Navigator.of(context).pop();
       Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
         return new MinePage();
       }));
     }else{
+      Navigator.of(context).pop();
       Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
         return new LoginPage();
       }));
@@ -69,7 +71,7 @@ class _MyDrawer extends State<MyDrawer> {
         _isLogin = user.isLogin;
         if(user.isLogin){
           title = user.name;
-          subTitle = "B币：${user.bcoin}   硬币：${user.coin}";
+          subTitle = "硬币：${user.coin}";
           avatar = new NetworkImage(user.face);
         }else{
           title = "请登陆";

@@ -5,26 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38fbb3ec-0a4e-4d67-a916-6a6ced3c9576" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/RSAProviderPlugin.java" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/BiliLyricLoader.java" afterPath="$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/BiliLyricLoader.java" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/LrcAnalyze.java" afterPath="$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/LrcAnalyze.java" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" afterPath="$PROJECT_DIR$/android/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/lib/comm/LyricBox.dart" afterPath="$PROJECT_DIR$/lib/comm/LyricBox.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/comm/MusicQueue.dart" afterPath="$PROJECT_DIR$/lib/comm/MusicQueue.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/comm/MyBottomBar.dart" afterPath="$PROJECT_DIR$/lib/comm/MyBottomBar.dart" />
       <change beforePath="$PROJECT_DIR$/lib/comm/MyDrawer.dart" afterPath="$PROJECT_DIR$/lib/comm/MyDrawer.dart" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" afterPath="$PROJECT_DIR$/lib/main.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/HistoryPage.dart" afterPath="$PROJECT_DIR$/lib/pages/HistoryPage.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/model/CollectionInfo.dart" afterPath="$PROJECT_DIR$/lib/model/CollectionInfo.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/model/state.dart" afterPath="$PROJECT_DIR$/lib/model/state.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/netword/BiliMusicApi.dart" afterPath="$PROJECT_DIR$/lib/netword/BiliMusicApi.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/netword/LoginHelper.dart" afterPath="$PROJECT_DIR$/lib/netword/LoginHelper.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/CollectionDetailsPage.dart" afterPath="$PROJECT_DIR$/lib/pages/CollectionDetailsPage.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/LoginPage.dart" afterPath="$PROJECT_DIR$/lib/pages/LoginPage.dart" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/MinePage.dart" afterPath="$PROJECT_DIR$/lib/pages/MinePage.dart" />
       <change beforePath="$PROJECT_DIR$/lib/pages/MusicListPage.dart" afterPath="$PROJECT_DIR$/lib/pages/MusicListPage.dart" />
       <change beforePath="$PROJECT_DIR$/lib/pages/PlayerPage.dart" afterPath="$PROJECT_DIR$/lib/pages/PlayerPage.dart" />
       <change beforePath="$PROJECT_DIR$/lib/pages/SearchPage.dart" afterPath="$PROJECT_DIR$/lib/pages/SearchPage.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/player/Lyric.dart" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/lib/player/Player.dart" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/lib/player/Toast.dart" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/lib/player/Volume.dart" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" afterPath="$PROJECT_DIR$/pubspec.lock" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" afterPath="$PROJECT_DIR$/pubspec.yaml" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -42,11 +39,10 @@
       <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="40" column="19" lean-forward="false" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+            <state relative-caret-position="966">
+              <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
               <folding>
-                <marker date="1539754245380" expanded="true" signature="57:234" ph="dependencies: &lt;5 keys&gt;" />
-                <marker date="1539754245380" expanded="true" signature="1040:1041" ph="flutter: &lt;2 keys&gt;" />
+                <marker date="1540038548414" expanded="true" signature="57:354" ph="dependencies: &lt;6 keys&gt;" />
               </folding>
             </state>
           </provider>
@@ -55,18 +51,28 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state relative-caret-position="874">
               <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ToastProviderPlugin.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ToastProviderPlugin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/ToastProviderPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="50" column="34" lean-forward="false" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -75,7 +81,7 @@
       <file leaf-file-name="RSAProviderPlugin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/RSAProviderPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
+            <state relative-caret-position="115">
               <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -87,8 +93,8 @@
       <file leaf-file-name="PlayerBinder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/PlayerBinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="11" column="83" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="83" />
+            <state relative-caret-position="92">
+              <caret line="11" column="83" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -97,7 +103,7 @@
       <file leaf-file-name="BiliLyricLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/BiliLyricLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-115">
+            <state relative-caret-position="345">
               <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding />
             </state>
@@ -116,16 +122,6 @@
       </file>
       <file leaf-file-name="gradlew.bat" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/gradlew.bat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="android.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android/android.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -232,8 +228,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,13 +235,20 @@
               <item name="bilimusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="bilimusic" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bilimusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bilimusic" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,7 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="718">
           <caret line="32" column="27" lean-forward="false" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -535,20 +535,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/player/Toast.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/player/Volume.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/player/Toast.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/player/Volume.dart" />
     <entry file="file://$PROJECT_DIR$/lib/comm/LoadStatus.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -616,7 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -662,18 +649,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/player/Player.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/player/Player.dart" />
     <entry file="file://$PROJECT_DIR$/lib/model/MusicInfo.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -702,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2852">
           <caret line="130" column="3" lean-forward="false" selection-start-line="130" selection-start-column="3" selection-end-line="130" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,15 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="193" column="57" lean-forward="false" selection-start-line="193" selection-start-column="10" selection-end-line="193" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -726,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -734,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -742,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -750,7 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -758,7 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -779,11 +744,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="40" column="19" lean-forward="false" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        <state relative-caret-position="966">
+          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
           <folding>
-            <marker date="1539754245380" expanded="true" signature="57:234" ph="dependencies: &lt;5 keys&gt;" />
-            <marker date="1539754245380" expanded="true" signature="1040:1041" ph="flutter: &lt;2 keys&gt;" />
+            <marker date="1540038548414" expanded="true" signature="57:354" ph="dependencies: &lt;6 keys&gt;" />
           </folding>
         </state>
       </provider>
@@ -798,7 +762,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
+        <state relative-caret-position="874">
           <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
           <folding />
         </state>
@@ -808,21 +772,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="192" column="29" lean-forward="false" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/PlayerBinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="11" column="83" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="83" />
+        <state relative-caret-position="92">
+          <caret line="11" column="83" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="83" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/BiliLyricLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
+        <state relative-caret-position="345">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
@@ -838,7 +801,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/RSAProviderPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
+        <state relative-caret-position="115">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -848,8 +811,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/android/app/src/main/java/cn/a10miaomiao/bilimusic/ToastProviderPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="23" column="34" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="50" column="34" lean-forward="false" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
           <folding />
         </state>
       </provider>

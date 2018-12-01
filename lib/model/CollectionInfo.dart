@@ -36,6 +36,8 @@ class CollectionInfo extends Object {
 
   List<int> songsid_list;
 
+  bool favorite = false;
+
   CollectionInfo(this.id,this.mid,this.title,this.ctime,this.mtime,this.is_default,this.is_open,this.img_url,this.collection_id,this.desc,this.uname,this.avatar,this.menu_id,this.records_num,this.songsid_list,);
 
   factory CollectionInfo.fromJson(Map<String, dynamic> srcJson) => _$CollectionInfoFromJson(srcJson);

@@ -82,7 +82,10 @@ class _SearchPage extends State<SearchPage> {
         _action = LoadAction.complete;
       });
     } catch (e) {
-      print(e);
+      new Dio().post(
+        "https://10miaomiao.cn/miao/bilimusic/logerr",
+        data: { "err": e.toString()}
+      );
       setState(() {
         _action = LoadAction.fail;
       });

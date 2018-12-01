@@ -227,7 +227,7 @@ class _MusicListPage extends State<MusicListPage> {
 
   List<Widget> buildActions(BuildContext context){
     var actions = <Widget>[];
-    if(_info != null && _info.collected == 0){
+    if(_info == null || _info.collected == 0){
       actions.add(
         new Builder(builder: (BuildContext context){
           return new IconButton(

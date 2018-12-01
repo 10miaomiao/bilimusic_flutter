@@ -45,7 +45,7 @@ class _LyricBox extends State<LyricBox> {
         item.text,
         textAlign: TextAlign.center,
         style: new TextStyle(
-          color: isHighlight ? Theme.of(context).accentColor : Colors.black,
+          color: isHighlight ? Theme.of(context).accentColor : Colors.white,
         ),
         maxLines: 1,
       );

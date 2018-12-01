@@ -1,7 +1,6 @@
 
-
+import 'dart:io';
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:bilimusic/netword/ApiHelper.dart';
 import 'package:bilimusic/netword/LoginHelper.dart';
@@ -17,20 +16,21 @@ class BiliMusicApi{
       if(options.data == null){
         options.data = new Map<String, dynamic>();
       }
-
       var access_key = await LoginHelper.getAccessToken();
-      if("access_key" != "")
+      if(access_key != "")
         options.data["access_key"] = access_key;
       var mid = await LoginHelper.getMid();
-      if("mid" != "")
+      if(mid != -1)
         options.data["mid"] = mid;
-      
       options.data["appkey"] = ApiHelper.APP_KEY;
       options.data["build"] = "5310300";
       options.data["mobi_app"] = "android";
       options.data["platform"] = "android";
       options.data["ts"] = ApiHelper.getTime();
       options.data["sign"] = ApiHelper.getSign(options.data);
+      if(options.method == "POST"){
+        options.contentType = ContentType.parse("application/x-www-form-urlencoded");
+      }
       return options; //continue
     }
     ..interceptor.response.onSuccess = (Response response) async {
@@ -112,5 +112,16 @@ class BiliMusicApi{
           }
         );
 
+  /**
+   * 收藏歌曲到歌单
+   */
+  static Future<Response<Map<String, dynamic>>> favorite(int id, List<int> collection)
+    => dio.post<Map<String, dynamic>>(
+      "/audio/music-service-c/collections/songs/" + id.toString(),
+      data: <String, dynamic>{
+        "collection_id_list": collection.join(","),
+        "song_id": id.toString(),
+      }
+    );
 
 }

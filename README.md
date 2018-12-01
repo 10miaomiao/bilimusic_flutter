@@ -1,6 +1,6 @@
 # bilimusic
 
-A new Flutter application.
+哔哩哔哩音频区第三方客户端
 
 ## Getting Started
 

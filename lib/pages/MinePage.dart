@@ -83,7 +83,7 @@ class _MinePage extends State<MinePage> {
   }
 
   Widget buildMenuItem(BuildContext context,MenuInfo2 item){
-return new ListTile(
+    return new ListTile(
       leading: new Container(
         height: 64.0,
         width: 64.0,

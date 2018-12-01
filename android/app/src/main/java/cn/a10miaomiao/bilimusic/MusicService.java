@@ -318,12 +318,10 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
         Map<String, Object> map = new HashMap<>();
         if (mMediaPlayer != null && index < list.size()) {
             Map<String, Object> info = list.get(index);
+            map.putAll(info);
             map.put("position", mMediaPlayer.getCurrentPosition());
             map.put("duration", mMediaPlayer.getDuration());
             map.put("isPlaying", mMediaPlayer.isPlaying());
-            map.put("title", info.get("title"));
-            map.put("author", info.get("author"));
-            map.put("cover", info.get("cover"));
             map.put("index", index);
         }
         return map;
